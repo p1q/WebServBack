@@ -1,6 +1,6 @@
 package com.telekart.controller;
 
-import exception.UserNotFoundException;
+import com.telekart.exception.UserNotFoundException;
 import com.telekart.domain.User;
 import com.telekart.json.view.StatusChangeRequest;
 import com.telekart.json.view.StatusChangeResponse;
