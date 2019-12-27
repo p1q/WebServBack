@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 class Error {
     private final HttpStatus status;
     private final String message;
-    private static final String contact = "mailto:alex353cay@gmail.com?subject=Вопрос по protei-test";
+    private static final String contact = "mailto:mail@gmail.com?subject=Question";
 
     Error(HttpStatus status, String message) {
         this.status = status;
