@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class DefaultExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<Error> handleAllUnhandledExceptions(Exception ex, WebRequest request) {
-        Error error = new Error(HttpStatus.INTERNAL_SERVER_ERROR, "Please refer to API docs (https://github.com/Alex353CAY/protei-test/blob/master/README.md)");
+        Error error = new Error(HttpStatus.INTERNAL_SERVER_ERROR, "Please refer to API docs");
         return new ResponseEntity<>(error, error.getStatus());
     }
 
@@ -23,8 +23,9 @@ public class DefaultExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @Override
-    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        Error apiError = new Error(HttpStatus.BAD_REQUEST, "Please refer to API docs (https://github.com/Alex353CAY/protei-test/blob/master/README.md)");
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(
+            HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        Error apiError = new Error(HttpStatus.BAD_REQUEST, "Please refer to API docs");
         return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST);
     }
 }
