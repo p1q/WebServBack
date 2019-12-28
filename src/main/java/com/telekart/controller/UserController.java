@@ -37,6 +37,7 @@ public class UserController {
         return new UserAdditionResponse(userService.addUser(user).getId().orElseThrow(IllegalStateException::new));
     }
 
+    @SuppressWarnings("OptionalGetWithoutIsPresent")
     @PutMapping("/users/{id}")
     public StatusChangeResponse updateStatus(@PathVariable(name = "id") long id, @RequestBody StatusChangeRequest body) {
         User user = getUser(id);
